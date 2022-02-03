@@ -1,4 +1,4 @@
-package responseCookie;
+package response;
 
 import java.io.IOException;
 
