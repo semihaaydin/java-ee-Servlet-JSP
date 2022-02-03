@@ -1,4 +1,4 @@
-package helloServlet;
+package session;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,17 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/testHelloServlet")
-public class HelloServletExample extends HttpServlet {
+@WebServlet("/session.servlet")
+public class SessionServletTest extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Servlet Çalýþtý");
+		HttpSession session = req.getSession();
 		PrintWriter pw=resp.getWriter();
-		pw.print("<h1>Server Calisti</h1>");
-		
-		// TODO Auto-generated method stub
-		//super.doGet(req, resp);
+	
+		if(session.isNew()) {
+			pw.write("Session New");
+		}else {
+			pw.write("Session Created is:"+session.getCreationTime());
+		}
 	}
 
 }

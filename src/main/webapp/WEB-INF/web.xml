@@ -28,6 +28,13 @@
 		<param-name>rootPath</param-name>
 		<param-value>/root/sem</param-value>
 	</context-param>
+	<listener>
+	<listener-class>listener.ServletContexListenerTest</listener-class>
+	</listener>
+	
+	<listener>
+	<listener-class>listener.ServletRequestListenerImpl</listener-class>
+	</listener>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
